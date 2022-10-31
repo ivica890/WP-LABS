@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Balloon Order page - Welcome and choose a Balloon</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to our Balloon Shop App</h1>
+</header>
+<form th:method="POST" th:action="@{/}">
+    <h2>Choose balloon color:</h2>
+    <div th:each = "balloon : ${balloons}">
+        <input type="radio" name="color" th:value="${balloon.getName()}"><th:block th:text="${balloon.getName()}"></th:block> Balloon<br/>
+    </div>
+    <br/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
