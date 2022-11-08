@@ -1,5 +1,6 @@
 package mk.finki.ukim.mk.lab1203196.web;
 
+import mk.finki.ukim.mk.lab1203196.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -17,6 +18,12 @@ public class BalloonOrderServlet extends HttpServlet {
     @Autowired
     private SpringTemplateEngine springTemplateEngine;
 
+    private final OrderService orderService;
+
+    public BalloonOrderServlet(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         WebContext context = new WebContext(req,resp,req.getServletContext());
@@ -29,6 +36,11 @@ public class BalloonOrderServlet extends HttpServlet {
         String address = req.getParameter("clientAddress");
         req.getSession().setAttribute("clientName",name);
         req.getSession().setAttribute("clientAddress",address);
+
+        String color = (String) req.getSession().getAttribute("color");
+        String size = (String) req.getSession().getAttribute("size");
+
+        orderService.save(color,size,name,address);
         resp.sendRedirect("/ConfirmationInfo");
 
     }

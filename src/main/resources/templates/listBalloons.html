@@ -14,13 +14,43 @@
 <header>
     <h1>Welcome to our Balloon Shop App</h1>
 </header>
-<form th:method="POST" th:action="@{/}">
-    <h2>Choose balloon color:</h2>
-    <div th:each = "balloon : ${balloons}">
-        <input type="radio" name="color" th:value="${balloon.getName()}"><th:block th:text="${balloon.getName()}"></th:block> Balloon<br/>
-    </div>
-    <br/>
-    <input type="submit" value="Submit">
-</form>
+<form th:method="POST" th:action="@{/balloons}" id="submitForm"></form>
+<h2>Choose balloon color:</h2>
+<div th:each="balloon : ${balloons}">
+    <input type="radio" name="color" th:value="${balloon.getName()}" form="submitForm">
+    <th:block th:text="${balloon.getName()}"></th:block><br/>
+
+    <form th:method="DELETE" th:action="@{/balloons/delete/{id} (id=${balloon.getId()})}">
+        <button type="submit">DELETE</button>
+    </form>
+        <form th:method="GET" th:action="@{/balloons/edit/{id} (id=${balloon.getId()})}">
+            <button type="submit">EDIT</button>
+        </form>
+</div>
+</br>
+<input type="submit" form="submitForm" value="SUBMIT">
+</br>
+<a href="balloons/add">Add new balloon</a>
+
+
+<!--<h2>Choose balloon color:</h2>-->
+<!--<div th:each="balloon : ${balloons}">-->
+<!--    <form th:method="POST" th:action="@{/balloons}">-->
+
+<!--            <input type="radio" name="color" th:value="${balloon.getName()}">-->
+<!--            <th:block th:text="${balloon.getName()}"></th:block>-->
+<!--            Balloon<br/>-->
+
+<!--        <br/>-->
+<!--        <input type="submit" value="Order">  <br/>-->
+<!--    </form>-->
+<!--    <form th:method="DELETE" th:action="@{'/balloons/delete/{id}'(id = ${balloon.getId()})}">-->
+<!--            <button type="submit">Delete</button>-->
+<!--        <br/>-->
+<!--    </form>-->
+<!--    <a th:href="@{'/balloons/edit/{id}' (id = ${balloon.getId()})}">Edit</a>-->
+<!--</div>-->
+
+<!--<a th:href="@{/balloons/add}">Add new balloon</a>-->
 </body>
 </html>

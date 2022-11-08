@@ -1,5 +1,6 @@
 package mk.finki.ukim.mk.lab1203196.web;
 
+import mk.finki.ukim.mk.lab1203196.dataHolder.DataHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -26,7 +27,8 @@ public class ConfirmationInfoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        DataHolder.orderList.clear();
         req.getSession().invalidate();
-        resp.sendRedirect("/");
+        resp.sendRedirect("/balloons");
     }
 }

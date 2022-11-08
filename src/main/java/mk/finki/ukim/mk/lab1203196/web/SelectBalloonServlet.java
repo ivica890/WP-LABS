@@ -29,6 +29,5 @@ public class SelectBalloonServlet extends HttpServlet {
         String size = req.getParameter("size");
         req.getSession().setAttribute("size", size);
         resp.sendRedirect("/BalloonOrder.do");
-
     }
 }

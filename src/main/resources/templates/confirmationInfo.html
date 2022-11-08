@@ -55,6 +55,13 @@
     <input type="submit" value="Log out">
   </form>
 
+  <form th:method="GET" th:action="@{/orders}">
+    <input type="submit" value="List all orders">
+  </form>
+  <form th:method="POST" th:action="@{/orders/newOrder}">
+    <input type="submit" value="New order">
+  </form>
+
 
 </section>
 </body>
