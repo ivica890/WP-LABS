@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head>balloon-shop
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -11,17 +11,18 @@
     <tr>
         <th scope="col">Balloon name</th>
         <th scope="col">Balloon size</th>
-        <th scope="col">Client name</th>
-        <th scope="col">Client address</th>
+        <th scope="col">Client userName</th>
+        <th scope="col">Order date</th>
     </tr>
     </thead>
       <tbody th:each="order : ${orders}">
         <th th:text="${order.getBalloonColor()}"></th>
         <th th:text="${order.getBalloonSize()}"></th>
-        <th th:text="${order.getClientName()}"></th>
-        <th th:text="${order.getClientAddress()}"></th>
+        <th th:text="${session.user.getUserFullname().name}"></th>
+        <td th:text="${#temporals.format(order.getDateCreated(), 'dd-MM-yyyy HH:mm:ss')}"></td>
       </tbody>
   </table>
 </div>
+
 </body>
 </html>

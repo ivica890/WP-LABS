@@ -9,13 +9,13 @@ import java.util.Optional;
 
 @Repository
 public class OrderRepository {
-    public Optional<Order> saveOrder(String color, String size, String clientName,
-                                     String clientAddress){
-       DataHolder.orderList.add(new Order(color,size,clientName,clientAddress));
-        return Optional.of(new Order(color,size,clientName,clientAddress));
-    }
-
-    public List<Order> listAll(){
-        return DataHolder.orderList;
-    }
+//    public Optional<Order> saveOrder(String color, String size, String clientName,
+//                                     String clientAddress){
+//       DataHolder.orderList.add(new Order(color,size,clientName,clientAddress));
+//        return Optional.of(new Order(color,size,clientName,clientAddress));
+//    }
+//
+//    public List<Order> listAll(){
+//        return DataHolder.orderList;
+//    }
 }
