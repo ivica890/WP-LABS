@@ -1,20 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="utf-8">
-  <title>WP lab - Delivery Info</title>
-
-</head>
-<body>
-<header >
-  <h1>Balloon Order page - Delivery information </h1>
-  <hr/>
-</header>
 <div >
   <section>
     <form th:method="POST" th:action="@{/BalloonOrder.do}" id="deliveryForm">
       <div>
-        Client Name: <th:block th:text="${session.user.getUsername()}"></th:block>
+        Client Name: <th:block th:text="${#request.getRemoteUser()}"></th:block>
       </div>
       <div>
         <label for="date">Enter the order creation date:</label><br/>
@@ -48,6 +36,3 @@
 <div>
   <input type="submit" value="Next" form="deliveryForm">
 </div>
-
-</body>
-</html>

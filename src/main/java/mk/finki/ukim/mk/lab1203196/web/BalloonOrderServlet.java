@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-@WebServlet(name = "balloon-order-servlet", urlPatterns = "/BalloonOrder.do")
+@WebServlet(name = "balloon-order-servlet", urlPatterns = "/BalloonOrder.do1")
 public class BalloonOrderServlet extends HttpServlet {
 
 

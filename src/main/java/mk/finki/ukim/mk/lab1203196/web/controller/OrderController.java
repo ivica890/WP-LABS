@@ -24,7 +24,9 @@ public class OrderController {
     public String getOrders(Model model){
         List<Order> orderList = orderService.listAll();
         model.addAttribute("orders", orderList);
-        return "userOrders";
+        model.addAttribute("bodyContent", "userOrders");
+
+        return "master-template";
     }
 
     @PostMapping("/newOrder")

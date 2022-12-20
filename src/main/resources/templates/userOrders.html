@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>balloon-shop
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 <div>
-  <table>
-    <thead>
-    <tr>
-        <th scope="col">Balloon name</th>
-        <th scope="col">Balloon size</th>
-        <th scope="col">Client userName</th>
-        <th scope="col">Order date</th>
-    </tr>
-    </thead>
-      <tbody th:each="order : ${orders}">
+    <h1>SHOPPING CART</h1>
+</div>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Balloon name</th>
+            <th scope="col">Balloon size</th>
+            <th scope="col">Client userName</th>
+            <th scope="col">Order date</th>
+        </tr>
+        </thead>
+        <tbody th:each="order : ${orders}">
         <th th:text="${order.getBalloonColor()}"></th>
         <th th:text="${order.getBalloonSize()}"></th>
-        <th th:text="${session.user.getUserFullname().name}"></th>
+        <th th:text="${#request.getRemoteUser()}"></th>
         <td th:text="${#temporals.format(order.getDateCreated(), 'dd-MM-yyyy HH:mm:ss')}"></td>
-      </tbody>
-  </table>
+        </tbody>
+    </table>
 </div>
-
-</body>
-</html>
